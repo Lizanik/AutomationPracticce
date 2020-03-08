@@ -17,14 +17,16 @@ public class CheckEmailUnhappyPath {
                 {"roman%&*.com"},
                 {"roman@@gmail.com"},
                 {"roman@gmail.com*&)"},
-                {"ro man@mail.ru"}
+                {"ro man@mail.ru"},
+                {"rn@gmail.com"},
+                {"roman_roman_roman_roman_roman_roman_roman_roman@gmail.com"}
         };
     }
 
     @Test(dataProvider = "invalidEmail")
-    public void InValidEmail(String email) {
-        boolean valid = Email.isEmailCorrect(email);
-        Assert.assertEquals(false, valid);
-    }
+    public void checkInValidEmail(String email) {
+        boolean actualResult = Email.isEmailCorrect(email);
+        Assert.assertFalse(actualResult);
+}
 }
 

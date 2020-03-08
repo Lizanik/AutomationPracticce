@@ -1,12 +1,11 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class SeleniumTask2 {
+public class CheckCheckBox {
     public ChromeDriver driver;
 
     @BeforeTest
@@ -28,7 +27,7 @@ public class SeleniumTask2 {
     }
 
     @DataProvider(name = "data-providerXPATH")
-    public Object[][] XpathDataProvider() {
+    public Object[][] xpathDataProvider() {
         return new Object[][]{
                 {"//input[(@id='checkbox-1')]"},
                 {"//input[(@id='checkbox-2')]"},
@@ -37,14 +36,14 @@ public class SeleniumTask2 {
     }
 
     @Test(dataProvider = "data-providerCSS")
-    public void CheckBoxTestCSS(String dataProvider) {
+    public void checkBoxTestCSS(String pathToElement) {
         driver.get("https://formy-project.herokuapp.com/checkbox");
-        driver.findElement(By.cssSelector(dataProvider)).click();
+        driver.findElement(By.cssSelector(pathToElement)).click();
     }
 
     @Test(dataProvider = "data-providerXPATH")
-    public void CheckBoxTestXPATH(String dataProvider) {
+    public void checkBoxTestXPATH(String pathToElement) {
         driver.get("https://formy-project.herokuapp.com/checkbox");
-        driver.findElement(By.xpath(dataProvider)).click();
+        driver.findElement(By.xpath(pathToElement)).click();
     }
 }

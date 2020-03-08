@@ -12,14 +12,15 @@ public class CheckEmailHappyPath {
                 {"roman!67@gmail.com"},
                 {"roman_55@mail.ru"},
                 {"roman@roman.com"},
-                {"_roman45@ukr.net"}
+                {"_roman45@ukr.net"},
+                {"romaN@gmail.com"}
         };
     }
 
     @Test(dataProvider = "validEmail")
-    public void ValidEmail(String email) {
-        boolean valid = Email.isEmailCorrect(email);
-        Assert.assertEquals(true, valid);
+    public void checkValidEmail(String email) {
+        boolean actualResult = Email.isEmailCorrect(email);
+        Assert.assertTrue(actualResult);
     }
 }
 
