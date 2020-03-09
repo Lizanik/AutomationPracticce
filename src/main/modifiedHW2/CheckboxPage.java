@@ -22,7 +22,6 @@ public class CheckboxPage extends PageObject{
         public void setCheckbox2() {
             checkbox2.click();
             driver.navigate().refresh();
-
         }
         public void setCheckbox3() {
             checkbox3.click();
